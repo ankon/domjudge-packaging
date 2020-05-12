@@ -51,6 +51,10 @@ echo "[..] Updating database credentials file"
 echo "dummy:${MYSQL_HOST}:${MYSQL_DATABASE}:${MYSQL_USER}:${MYSQL_PASSWORD}" > etc/dbpasswords.secret
 echo "[ok] Updated database credentials file"; echo
 
+echo "[..] Configuring permissions for the source directory"
+chown -R domjudge .
+echo "[ok] Configured permissions"; echo
+
 if [ "${DJ_SKIP_MAKE}" -eq "1" ]
 then
   echo "Skipping maintainer-mode install for DOMjudge"
